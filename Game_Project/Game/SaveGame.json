@@ -1,0 +1,14 @@
+{
+    "Baik_name":"Rusdi",
+    "Baik_health":25,
+    "Baik_level":27,
+    "Location":"Arena",
+    "Baik_strength":25,
+    "Baik_potions":0,
+    "Baik_experience":0,
+    "active_quests":[],
+    "completed_quest":[
+        "Ngawi",
+        "Njeng"
+    ]
+}

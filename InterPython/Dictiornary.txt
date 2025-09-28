@@ -1,0 +1,41 @@
+mydict = {"name": "max", "age": 20, "city": "New York"}  
+# or you can use mydict = dict(name="max", age=20, city="New York")
+
+value = mydict["age"] #Accessing value by key
+
+mydict["email"] = "max@example.com" #Adding new key-value pair
+
+ # del mydict["city"] #Removing key-value pair
+
+# mydict.pop("age") #Removing key-value pair using pop method
+
+mydict.popitem() #Removes the last inserted key-value pair
+
+if "name" in mydict:
+    print(mydict["name"])
+
+try:
+    print(mydict["first email"])
+except KeyError:
+    print("not found")
+
+# for key in mydict: #Looping through keys # or mydict.keys()
+# for value in mydict.values(): #Looping through values
+for key, value in mydict.items(): #Looping through key-value pairs
+    print(key, value)
+
+mydict_cpy = mydict.copy() # Creating a copy of the dictionary  
+ # or you can use mydict_cpy = dict(mydict)
+
+my_dict = {"name": "max", "age": 20, "city": "New York", "email": "max@example.com"}
+my_dict2 = {"name": "john", "age": 25, "city": "Los Angeles"}    
+
+my_dict.update(my_dict2) #Updating dictionary with another dictionary
+print(my_dict)
+
+#Tuple can  be a dictionary key
+# my_tuple = ("name", "age")
+# my_dict = {my_tuple: "value"} #Valid
+# but List can't be a dictionary key
+
+print(mydict)

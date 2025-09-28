@@ -1,0 +1,42 @@
+mytuple = ("Max", 20,"bws") #The parentheses are optional
+# mytuple = ("Max") #This is not recognized as tuples cuz Tuples require  More than 1 value
+ # To change that to tuple you have to put comma in the end 
+mytuple1 = ("Max",)
+print(mytuple)
+print(type(mytuple1)) # <class 'tuple'> #Checking class
+
+mytuple2 = (["Max", 20,"bws"]) #Tuple with a list inside
+print(mytuple2)
+
+item = mytuple[1] #Accessing tuple items
+print(item)
+
+for i in mytuple: #Looping through a tuple
+    print(i)  
+
+my_list = list(mytuple) #Converting tuple to list
+print(my_list)
+
+my_tuple2 = tuple(my_list) #Converting list to tuple
+print(my_tuple2)
+
+name, age, city = mytuple #Unpacking a tuple
+print(name)
+print(age)
+print(city)
+
+
+#i1,*i2, i3 = mytuple #Unpacking with starred expression
+# *i2 will capture all items between i1 and i3
+
+import sys
+
+my_list = [1, 2, 3]
+mytuple = (1, 2, 3)
+print(sys.getsizeof(my_list), "bytes") # Get the size of the list in bytes
+print(sys.getsizeof(mytuple), "bytes") # Get the size of the tuple in bytes
+# Tuples are generally more memory efficient than lists
+
+import timeit
+print(timeit.timeit(stmt="[1,2,3,4,5]", number=1000000)) # Time taken to create a list
+print(timeit.timeit(stmt="(1,2,3,4,5)", number=1000000)) # Time taken to create a tuple

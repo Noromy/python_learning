@@ -1,0 +1,11 @@
+{
+    "name": "Zara",
+    "age": 7,
+    "city": "Badung",
+    "hasChildren": false,
+    "titles": [
+        "entrepreneur",
+        "engineer",
+        "editor"
+    ]
+}

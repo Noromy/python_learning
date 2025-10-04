@@ -1,6 +1,6 @@
 import json
 import os
-Folder = "logging"
+Folder = os.path.join(os.path.dirname(__file__), "Log_User")
 UserFile = "users.json"
 UserFolder = os.path.join(Folder, UserFile)
 

@@ -76,3 +76,11 @@ def write(file_path, data):
     print("Data successfully added.")
 
     read()
+
+def update(data_file):
+    try:
+        with open(DataBase.UserFolder, "w") as file:
+                json.dump(data_file, file, indent=2)
+                print("Book updated successfully.")
+    except Exception as e:
+        print(f'Error Updating data: {e}')

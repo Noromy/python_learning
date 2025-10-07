@@ -13,36 +13,33 @@ def update_control():
     Operation.read(index=no_book - 1)
     if 1 <= no_book <= len(data_file):
         book = data_file[no_book - 1]
-        print(f"\n📘 Current Data:")
+        print(f"\nCurrent Data:")
         print(f"Tittle : {book['Tittle']}")
         print(f"Author : {book['Author']}")
         print(f"Year   : {book['Year']}")
 
-        # Input perubahan
+
         new_title = input("New title (leave blank to keep): ")
         new_author = input("New author (leave blank to keep): ")
         while True:
-            try:
-                new_year = int(input("Input book's year: "))
-                if len(str(new_year)) == 4:
-                    break
-                else:
-                    print("year must be 4 digits. please try again.")
-            except ValueError:
-                print("Invalid input for year. Please enter a number.")
-    
-        # Update jika ada input
+            new_year = input("Input book's year (leave blank to keep): ")
+            if not new_year:
+                new_year = None
+                break
+            if  new_year.isdigit() and len(new_year) == 4:
+                new_year = int(new_year)
+                break
+            else:
+                print("❌ Year must be a 4-digit number. Please try again.")
+ 
+
         if new_title: book['Tittle'] = new_title
         if new_author: book['Author'] = new_author
         if new_year: book['Year'] = int(new_year)
 
-        # Simpan ulang
-        with open(DataBase.UserFolder, "w") as file:
-            json.dump(data_file, file, indent=2)
-
-        print("✅ Book updated successfully.")
     else:
-        print("❌ Invalid book number.")
+        print("Invalid book number.")
+    Operation.update(data_file)
 
 
 
@@ -95,5 +92,27 @@ def read_control():
 
     # Footer
     print("="*100+"\n")
+
+def delete_control():
+    read_control()
+    print("\nChoose the number of the book to delete: ")
+    no_book = int(input("book number: "))
+    data_file = Operation.read()
+    if 1 <= no_book <= len(data_file):
+        book = data_file[no_book - 1]
+        print("\n"+"="*100)
+        print(f'You are about to delete the book: ')
+        print(f'Tittle\t : {book["Tittle"]}')
+        print(f'Author\t : {book["Author"]}')
+        print(f'Year\t : {book["Year"]}')
+        confirm = input(f"Are you sure you want to delete '{book['Tittle']}' by {book['Author']}? (y/n): ").lower()
+        if confirm == 'y':
+            data_file.pop(no_book - 1)
+            Operation.update(data_file)
+            print("Book deleted successfully.")
+        else:
+            print("Deletion cancelled.")
+    else:
+        print("Invalid book number.")
 
 

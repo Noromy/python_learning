@@ -28,7 +28,7 @@ if __name__=="__main__":
             case "1": db.read_control()
             case "2": db.create_control()
             case "3": db.update_control()
-            case "4": print("Update Data Book")
+            case "4": db.delete_control()
             case "5": print("Exit");break
             case _: print("Invalid choice. Please try again.")
         
